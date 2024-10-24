@@ -63,3 +63,21 @@ Sub UpdatePivotTableBasedOnSelections()
     ' Step 3: Refresh the Pivot Table
     pt.RefreshTable
 End Sub
+
+
+
+--python
+df = pd.DataFrame(data)
+
+data = {
+    'Claim_id': ['ID4562019', 'ID4562019', 'ID4572019', 'ID4572019'],
+    'Month': [7, 7, 8, 8],
+    'Request_Number': [1, 2, 1, 2],
+    'Claim_Amount': [250, 300, 300, 350]
+
+# Group by 'Claim_id' and 'Month', and then find the max Request_Number and corresponding Claim_Amount
+result = df.loc[df.groupby(['Claim_id', 'Month'])['Request_Number'].idxmax()]
+
+# Reset the index if needed and display the result
+result = result.reset_index(drop=True)
+print(result)
