@@ -1,0 +1,43 @@
+To create a Pivot Table in Excel with dynamic options (like selecting between Original Currency or Settlement Currency) and a Refresh Button, you can follow these steps:
+
+Steps to Set Up:
+Prepare your Data: Ensure that your data is structured in Excel with columns for GWP, NWP, GPP, NPP, Currency, Underwriting Year (UY), etc.
+
+Create the Pivot Table:
+
+Insert Pivot Table:
+
+Highlight the data range.
+Go to the Insert tab → PivotTable.
+Place the Pivot Table in a new worksheet or an existing worksheet.
+Pivot Table Setup:
+
+Drag and drop fields into the Row Labels, Column Labels, and Values areas:
+For example, put Underwriting Year (UY) in Rows.
+Put Gross Written Premium (GWP), Net Written Premium (NWP), Gross Paid Premium (GPP), Net Paid Premium (NPP) in the Values area.
+You can also place Currency in the Columns area if you want to see both Original and Settlement currencies.
+Add a Drop-Down Menu for Currency:
+
+Create a Drop-Down List:
+In an empty cell, say A1, create a drop-down list for Currency Type (Original/Settlement).
+Go to the Data tab → Data Validation.
+In Allow, select List.
+In the Source box, type: Original,Settlement.
+Now you have a dropdown to select either Original or Settlement currency.
+Set Up a Refresh Button:
+
+Record a Macro for Refresh:
+Go to the Developer tab (if not visible, enable it in Excel Options).
+Click Record Macro.
+In the dialog box, give the macro a name like "RefreshPivot" and hit OK.
+Now manually refresh the Pivot Table by right-clicking the Pivot Table and selecting Refresh.
+Stop the macro recording by clicking Stop Recording on the Developer tab.
+Add a Button:
+Go to the Developer tab → Insert → Button.
+Draw the button somewhere near the pivot table.
+Assign the macro you just recorded (RefreshPivot) to this button.
+Label the button as "Refresh".
+Update Pivot Table Based on Currency Selection:
+
+To make the Pivot Table dynamic based on currency selection, we can use a combination of Excel formulas (like IF statements) or VBA code.
+Here’s a VBA code you can use to update the Pivot Table based on the Currency selection in the drop-down:
